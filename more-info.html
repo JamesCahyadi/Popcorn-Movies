@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="more-info-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <title>Popcorn Movies</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="title">
+            <img src="images/logo.png" alt="logo" width="60" height="60">
+            <h1 class="company">Popcorn Movies</h1>
+        </div>
+
+        <div class="movie-search">
+            <input type="input" id="search-bar" placeholder="Search Popcorn Movies"/>
+            <button id="search-btn">Search</button> 
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn" disabled>Next</button> 
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="trailer-container" scrolling="no">
+            <iframe class="trailer" src="https://www.youtube.com/embed/6ZfuNTqbHE8"
+            frameborder="0"       
+            allowfullscreen
+            ></iframe>
+        </div>
+        <hr>
+
+        <div class="description-container">
+            <div class="about-movie">
+                <h1 id="movie-title"></h1>
+                <div class="movie-property">
+                    <h3>Plot</h3>                
+                    <p id="plot"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Runtime</h3>
+                    <p id ="runtime"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Genre</h3>
+                    <p id="genre"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Country</h3>
+                    <p id="country"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Actors</h3>
+                    <p id="actors"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Director</h3>
+                    <p id="director"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Production</h3>
+                    <p id="production"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Rated</h3>
+                    <p id="rated"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Released</h3>
+                    <p id="released"></p>
+                </div>
+                <div class="movie-property">
+                    <h3>Writers</h3>
+                    <p id="writer"></p>
+                </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <ol id="articles"></ol>
+    </div>
+    <script src="more-info-script.js"></script>
+</body>
+</html>

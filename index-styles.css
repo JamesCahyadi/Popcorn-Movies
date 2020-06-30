@@ -1,0 +1,153 @@
+html {
+    overflow-y:scroll;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa';
+    background-color: rgb(187, 187, 187);
+}
+
+/* header */
+.company {
+    color: whitesmoke;
+    text-shadow: 2px 2px grey;
+}
+
+.header {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.title,
+.movie-search {
+    display: flex;
+    justify-content: center;
+}
+
+#search-bar {
+    width: 200px;
+    height: 25px;
+}
+
+#search-btn {
+    margin-right: 20px;
+}
+
+
+.movie-search > button {
+    border-radius: 3px;
+    border: solid black 1px;
+    margin-right: 1px;
+    background-color: rgb(230, 80, 80);
+    color: whitesmoke;
+}
+
+.movie-search > button:disabled {
+    opacity: 0.5;
+}
+
+.movie-search > button:hover {
+    margin-right: 1px;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed !important;
+}
+
+/* movie cards */
+#movie-list {
+    padding-inline-start: 0;
+    margin: 1vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 270px);
+    justify-content: center;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.movie-card {
+    list-style: none;
+    background-color: whitesmoke;
+    border: solid black 1.5px;
+    padding: 2px;
+    text-align: center;
+    margin: 0.5vh;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 350px;
+    border-radius: 3px;
+}
+
+.movie-title {
+    font-size: 0.95em;
+    height: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.more-btn {
+    background-color: rgb(230, 80, 80);
+    border: solid black 1.3px;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+/* media queries */
+@media (max-width: 980px) {
+    .header {
+        padding: 5px;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .header {
+        padding: 5px;
+        grid-template-columns: 1fr;
+    }
+
+    #search-bar {
+        width: 150px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 350px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .title {
+        padding-bottom: 8px;
+    }
+
+    .header {
+        padding: 5px;
+        grid-template-columns: 1fr;
+    }
+
+    #search-bar {
+        width: 100px;
+        height: 15px;
+    }
+}
