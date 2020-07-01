@@ -31,11 +31,18 @@ searchBtn.addEventListener('click', () => {
 
 // get all the movie info
 function getIMDBMovie() {
-    let id = sessionStorage.getItem('movieId');
+    const ID = sessionStorage.getItem('movieId');
     //console.log(imdbID);
-    fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=53e9cf7d`)
+    fetch(`http://www.omdbapi.com/?i=${ID}&plot=full&apikey=53e9cf7d`)
     .then(res => res.json())
     .then(data => {
+        const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+        const NYTIMES_API_KEY = process.env.NYTIMES_API_KEY;
+        const TRAILER_URL = 
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(data.Title) + '%20' + encodeURIComponent(data.Year)}%20trailer&type=video&videoDuration=short&videoEmbeddable=true&key=${YOUTUBE_API_KEY}`;
+        const REVIEWS_URL =
+        `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${encodeURIComponent(data.Title)}&api-key=${NYTIMES_API_KEY}`;
+
         // fill up movie info data
         movieTitle.textContent = data.Title;
         moviePlot.textContent = data.Plot;
@@ -49,23 +56,18 @@ function getIMDBMovie() {
         movieRated.textContent = data.Rated;
         movieReleased.textContent = data.Released;
 
-        let trailerURL, reviewsURL;
-        trailerURL = 
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(data.Title) + '%20' + encodeURIComponent(data.Year)}%20trailer&type=video&videoDuration=short&videoEmbeddable=true&key=AIzaSyC-QaOkfnd_Wmj_dc41fUn3MEY_KKZgq-k`
-        reviewsURL =
-        `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${encodeURIComponent(data.Title)}&api-key=1JHVIo5yqg27oG0qjHapCCqeAtBttbhN`
         // call functions
-        getTrailer(trailerURL);
-        getArticles(reviewsURL);
+        getTrailer(TRAILER_URL);
+        getArticles(REVIEWS_URL);
         ratingGraph(data.Ratings);
     })
     .catch(e => console.log(e));
-}
+};
 
 // graph of movie ratings
 function ratingGraph(ratings) {
     Chart.defaults.global.legend.display = false;
-    Chart.defaults.global.defaultFontFamily = 'Comfortaa'
+    Chart.defaults.global.defaultFontFamily = 'Comfortaa';
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -136,7 +138,7 @@ function ratingGraph(ratings) {
         //myChart.data.labels.push(ratings[i].Source); 
         myChart.update();  
     }
-}
+};
 
 // get the movie trailer
 function getTrailer(url) {
@@ -145,7 +147,7 @@ function getTrailer(url) {
     .then(data => {
         document.querySelector('iframe').src = `https://www.youtube.com/embed/${data.items[0].id.videoId}?enablejsapi=1`
     });
-}
+};
 
 // movie critic articles
 function getArticles(url) {
@@ -186,6 +188,6 @@ function getArticles(url) {
         }
         articles.innerHTML = articleString;
     });
-}
+};
 
 getIMDBMovie();

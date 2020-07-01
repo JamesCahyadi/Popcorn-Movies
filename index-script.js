@@ -3,6 +3,7 @@ let searchBtn = document.getElementById('search-btn');
 let nextBtn = document.getElementById('next-btn');
 let prevBtn = document.getElementById('prev-btn');
 let searchBar = document.getElementById('search-bar');
+//require('dotenv').config();
 
 // enable enter key for searching
 searchBar.addEventListener('keyup', (evt) => {
@@ -46,7 +47,8 @@ function movieResults() {
         prevBtn.disabled = false;
     }
     // call OMDB api
-    fetch(`http://www.omdbapi.com/?s=${movieName}}&page=${pageNum}&apikey=53e9cf7d`)
+    const IMDB_API_KEY = process.env.IMDB_API_KEY; 
+    fetch(`http://www.omdbapi.com/?s=${movieName}}&page=${pageNum}&apikey=${IMDB_API_KEY}`)
     .then(res => res.json())
     .then(data => {
         // no more results a movie
@@ -74,7 +76,7 @@ function movieResults() {
 
 function displayMovies(movies) {
     // make a card for each movie
-    const movieString = movies.map(movie => 
+    let movieString = movies.map(movie => 
         `
         <li class="movie-card">
             <img class="movie-poster" src="${movie.Poster}" onerror="this.onerror=null;this.src='images/default-poster.jpg';" />
@@ -94,11 +96,11 @@ function movieSelected(imdbID) {
     sessionStorage.setItem('movieId', imdbID);
     window.location = 'more-info.html';
     return false;
-}
+};
 
 // check the session storage when ever entering the page
 function checkStorage() {
-    let movieName = sessionStorage.getItem('movieSearched');
+    const movieName = sessionStorage.getItem('movieSearched');
     // movie name in storage(means search button was hit from the more-info page)
     if(movieName != null) {
         // new search occured to get back to index
@@ -108,7 +110,7 @@ function checkStorage() {
         }
         movieResults();
     }
-}
+};
 
 checkStorage();
 
