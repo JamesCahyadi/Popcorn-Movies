@@ -174,7 +174,8 @@ button:disabled {
     background-color: whitesmoke;
     list-style: none;
     display: grid;
-    grid-template-columns: minmax(auto, 300px) minmax(120px, auto);
+    grid-template-columns: 215px auto;
+     /* minmax(auto, 300px) minmax(120px, auto); */
     grid-template-rows: minmax(150px, auto);
     align-items: center;
     border: solid 2px black;
@@ -269,6 +270,10 @@ button:disabled {
 }
 
 @media (max-width: 500px) {
+    .article {
+        padding: 10px;
+    }
+
     .article-image {
         width: 70%;
         height: 70%; 
@@ -276,16 +281,20 @@ button:disabled {
 }
 
 @media (max-width: 400px) {
-    .article {
-        grid-template-columns: 50% 50%;
-    }
-}
-
-@media (max-width: 400px) {
     #search-bar {
         width: 150px;
         height: 15px;
     }
+    .article {
+        grid-template-columns: 40% 60%;
+    }
+
+    .article-image {
+        width: 80%;
+        height: 60%; 
+   }
+
+   
 }
 
 @media (max-width: 350px) {
