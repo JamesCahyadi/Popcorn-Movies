@@ -5,7 +5,7 @@ require('dotenv').config();
 
 // use the port number that comes with the hosting platform OR 3000 as a fallback
 const port = process.env.PORT || 3001;
-app.listen(3001, () => console.log(`Server started at port: ${port}`));
+app.listen(port, () => console.log(`Server started at port: ${port}`));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' })); 
 
