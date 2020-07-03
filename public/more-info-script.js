@@ -96,7 +96,7 @@ function getArticles(movieData) {
                 articleString +=
                 `
                 <li class="article">
-                    <img class="article-image" src="images/movie-review.png" onerror="this.onerror=null";"/>
+                    <img class="article-image" src="images/movie-review.png" onerror="this.onerror=null"; width=10; height=10;"/>
                     <div class="article-text">
                         <h3 class="article-title">${data.results[i].headline}</h3>
                         <p class="article-summary">${data.results[i].summary_short}" </p>
