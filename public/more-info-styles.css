@@ -181,7 +181,6 @@ button:disabled {
     padding: 4px;
     margin: 1.5px auto;
     width: 80%;
-    
 }
 
 .article-image {
@@ -189,8 +188,8 @@ button:disabled {
     grid-row-end: 5;
     justify-self: center;
     align-self: center;
-    width: 60%;
-    height: 80%;
+    width: 70%;
+    height: 90%;
     border: solid 2px black;
 }
 
@@ -269,10 +268,17 @@ button:disabled {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .article-image {
-        height: 100px; 
+        width: 70%;
+        height: 70%; 
    }
+}
+
+@media (max-width: 400px) {
+    .article {
+        grid-template-columns: 50% 50%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -299,5 +305,9 @@ button:disabled {
     #search-bar {
         width: 100px;
     }
+
+    .article-image {
+        height: 50%; 
+   }
 }
 

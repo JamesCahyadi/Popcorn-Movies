@@ -13,6 +13,7 @@ let articles = document.getElementById('articles');
 let searchBar = document.getElementById('search-bar');
 let searchBtn = document.getElementById('search-btn');
 
+// get the movie information
 getIMDBMovie();
 
 // enable enter key for search button
@@ -34,7 +35,6 @@ searchBtn.addEventListener('click', () => {
 // get all the movie info
 function getIMDBMovie() {
     const ID = sessionStorage.getItem('movieId');
-    //console.log(imdbID);
     fetch(`imdbMovie/${ID}`)
     .then(res => res.json())
     .then(data => {
@@ -52,7 +52,7 @@ function getIMDBMovie() {
         movieReleased.textContent = data.Released;
 
         // call functions
-        getTrailer(data);
+        //getTrailer(data);
         getArticles(data);
         ratingGraph(data.Ratings);
     })
@@ -65,7 +65,6 @@ function getTrailer(movieData) {
     fetch(`trailer/${movie.Title}/${movie.Year}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         document.querySelector('iframe').src = `https://www.youtube.com/embed/${data.items[0].id.videoId}?enablejsapi=1`
     });
 };
@@ -97,7 +96,7 @@ function getArticles(movieData) {
                 articleString +=
                 `
                 <li class="article">
-                    <img class="article-image" src="movie-review.png" onerror="this.onerror=null"; width="80px" height="80px"/>
+                    <img class="article-image" src="images/movie-review.png" onerror="this.onerror=null"; width="80px" height="80px"/>
                     <div class="article-text">
                         <h3 class="article-title">${data.results[i].headline}</h3>
                         <p class="article-summary">${data.results[i].summary_short}" </p>
