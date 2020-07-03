@@ -175,7 +175,6 @@ button:disabled {
     list-style: none;
     display: grid;
     grid-template-columns: 215px auto;
-     /* minmax(auto, 300px) minmax(120px, auto); */
     grid-template-rows: minmax(150px, auto);
     align-items: center;
     border: solid 2px black;
@@ -291,8 +290,6 @@ button:disabled {
     }
 
     .article-image {
-        /* width: 80%;
-        height: 60%;  */
         width: 80%;
         height: 60%;
    }
