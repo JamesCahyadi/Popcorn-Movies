@@ -52,7 +52,7 @@ function getIMDBMovie() {
         movieReleased.textContent = data.Released;
 
         // call functions
-        //getTrailer(data);
+        getTrailer(data);
         getArticles(data);
         ratingGraph(data.Ratings);
     })
