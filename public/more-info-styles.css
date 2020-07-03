@@ -293,8 +293,6 @@ button:disabled {
         width: 80%;
         height: 60%; 
    }
-
-   
 }
 
 @media (max-width: 350px) {
@@ -316,6 +314,7 @@ button:disabled {
     }
 
     .article-image {
+        width: 80%;
         height: 50%; 
    }
 }
