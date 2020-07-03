@@ -290,8 +290,10 @@ button:disabled {
     }
 
     .article-image {
-        width: 80%;
-        height: 60%; 
+        /* width: 80%;
+        height: 60%;  */
+        width: 10px;
+        height: 10px;
    }
 }
 
