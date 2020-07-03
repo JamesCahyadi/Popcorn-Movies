@@ -82,8 +82,10 @@ function getArticles(movieData) {
                 articleString +=
                         `
                         <li class="article">
-                            <img class="article-image" src="${data.results[i].multimedia.src}"
-                             onerror="if (this.src != 'error.jpg') this.src = 'images/movie-review.png'" ;/>
+                            <div class="image-container">
+                                <img class="article-image" src="${data.results[i].multimedia.src}"
+                                onerror="if (this.src != 'error.jpg') this.src = 'images/movie-review.png'" ;/>
+                             </div>
                             <div class="article-text">
                                 <h3 class="article-title">${data.results[i].headline}</h3>
                                 <p class="article-summary">${data.results[i].summary_short}" </p>

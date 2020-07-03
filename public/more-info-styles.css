@@ -271,7 +271,8 @@ button:disabled {
 
 @media (max-width: 500px) {
     .article {
-        padding: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .article-image {
@@ -292,9 +293,8 @@ button:disabled {
     .article-image {
         /* width: 80%;
         height: 60%;  */
-        position: relative;
-        width: 10px;
-        height: 80%;
+        width: 80%;
+        height: 60%;
    }
 }
 
