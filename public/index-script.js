@@ -36,24 +36,10 @@ prevBtn.addEventListener('click', () => {
     movieResults();
 });
 
-async function getTheData(data) {
-    const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    }
-    fetch('/api', options);
-    console.log('sent data to server');
-}
-
 function movieResults() {
     let pageNum = sessionStorage.getItem('pageNum');
     let movieName = sessionStorage.getItem('movieSearched');    
     
-    //useless
-    // const server_data = { pageNum, movieName };
-    // getTheData(server_data);
-
     // disable the prevBtn if there is no previous
     if(pageNum == 1) {
         prevBtn.disabled = true;
