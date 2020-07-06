@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const app = express();
 require('dotenv').config();
 
-// use the port number that comes with the hosting platform OR 3000 as a fallback
+// use the port number that comes with the hosting platform OR 3001 as a fallback
 const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Server started at port: ${port}`));
 app.use(express.static('public'));
